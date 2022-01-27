@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect, useEffect } from "react";
 import { isMobile } from "react-device-detect";
 import "./App.css";
 import ChatIcon from "./assets/chat.svg";
@@ -7,6 +7,7 @@ function App() {
   const [size, setSize] = useState([0, 0]);
   const [mobile, setMobile] = useState(false);
   const [visible, setVisible] = useState(false);
+
   useLayoutEffect(() => {
     function updateSize() {
       setSize([window.innerWidth, window.innerHeight - 10]);
@@ -35,8 +36,6 @@ function App() {
         width={mobile ? size[0] : 400}
         style={{
           position: mobile ? "unset" : "fixed",
-          // bottom: -100,
-
           border: !mobile ? "1px solid #e4e4e4" : "unset",
           borderRadius: !mobile ? "18px" : "unset",
           visibility: visible ? "visible" : "hidden",
@@ -48,10 +47,13 @@ function App() {
       <button
         onClick={(e) => {
           setVisible(true);
+          //@ts-ignore
+          window["chabot"] = true;
         }}
         style={{
           opacity: !visible ? 1 : 0,
           transition: "all 0.5s ease-in-out",
+          pointerEvents: visible ? "none" : "unset",
         }}
       >
         <img src={ChatIcon} alt="chat bot icon" height={30} width={30} />

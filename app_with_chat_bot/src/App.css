@@ -13,6 +13,7 @@ button:hover {
 }
 
 iframe {
+  bottom : 2rem;
   right: 3rem;
   z-index: 100;
   overflow: hidden;

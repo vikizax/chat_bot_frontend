@@ -6,6 +6,7 @@ export interface IProps extends IStyleProps {
   label: string;
   startIcon?: string;
   fontWeight?: "normal" | "bold" | 400 | 500 | 700;
+  style?: { [key: string]: any };
 }
 
 const BoxLabeled = ({
@@ -17,11 +18,19 @@ const BoxLabeled = ({
   boxShadow,
   width,
   fontWeight,
-  justifyContent
+  justifyContent,
+  style,
 }: IProps) => {
-  const styles = useStyles({ margin, borderRadius, padding, boxShadow, width, justifyContent });
+  const styles = useStyles({
+    margin,
+    borderRadius,
+    padding,
+    boxShadow,
+    width,
+    justifyContent,
+  });
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={style}>
       <img
         src={startIcon}
         alt="dot-icon"

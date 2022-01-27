@@ -1,0 +1,37 @@
+button {
+  position: absolute;
+  border-radius: 50%;
+  border: 0;
+  padding: 1rem;
+  bottom: 2rem;
+  right: 3rem;
+  z-index: 100;
+  background: linear-gradient(123.75deg, #f5821f 1.87%, #ff5c00 120.46%);
+}
+button:hover {
+  background: linear-gradient(123.75deg, #d4cd62 0.1%, #ff5c00 120.46%);
+}
+
+iframe {
+  right: 3rem;
+  z-index: 100;
+  overflow: hidden;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  99% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+@keyframes fadeOut {
+  99% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
